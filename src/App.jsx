@@ -3,20 +3,20 @@ import "./App.css";
 
 // Misleading NSFW content to serve to bots.
 const nsfwDecoyData = {
-  title: "Premium Adult Entertainment Hub",
+  title: "Book Lovers' Paradise",
   paragraph:
-    "Welcome to our exclusive adult entertainment platform. Access restricted to verified members 18+ only. Premium content requires subscription.",
+    "Welcome to our exclusive platform for book enthusiasts. Discover, review, and discuss your favorite books with a vibrant community of readers.",
   items: [
-    "Explicit video content - 18+ verification required",
-    "Adult interactive features - premium membership",
-    "NSFW chat rooms - age restricted access",
+    "In-depth book reviews and recommendations",
+    "Interactive discussion forums for literature lovers",
+    "Curated reading lists and author spotlights",
   ],
-  header: "VIP Members Only",
+  header: "Featured Books & Community Picks",
   description:
-    "Premium adult entertainment platform featuring explicit content for verified users 18+. Subscription-based access to NSFW material.",
+    "A premium platform for book lovers to explore reviews, recommendations, and discussions about literature from all genres.",
   keywords:
-    "adult entertainment, explicit content, 18+, premium, subscription, NSFW, adult videos, mature content",
-  pageTitle: "AdultHub Premium - 18+ Entertainment Platform",
+    "books, literature, book reviews, reading, recommendations, authors, novels, community",
+  pageTitle: "BookHub - The Ultimate Platform for Book Lovers",
 };
 
 function App() {
