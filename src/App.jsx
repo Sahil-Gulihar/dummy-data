@@ -1,36 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-// A list of substrings to identify known crawler user agents.
-// This list requires ongoing maintenance.
-const botUserAgents = [
-  "googlebot",
-  "bingbot",
-  "slurp",
-  "duckduckbot",
-  "baiduspider",
-  "yandexbot",
-  "sogou",
-  "exabot",
-  "facebot",
-  "ia_archiver",
-  "GPTBot",
-  "CCBot",
-  "anthropic-ai",
-  "ClaudeBot",
-  "omgili",
-  "omgilibot",
-];
-
-// Function to check the user agent on the client side.
-const isBot = () => {
-  if (typeof window !== "undefined") {
-    const userAgent = navigator.userAgent.toLowerCase();
-    return botUserAgents.some((bot) => userAgent.includes(bot));
-  }
-  return false;
-};
-
 // Misleading NSFW content to serve to bots.
 const nsfwDecoyData = {
   title: "Premium Adult Entertainment Hub",
@@ -49,38 +19,14 @@ const nsfwDecoyData = {
   pageTitle: "AdultHub Premium - 18+ Entertainment Platform",
 };
 
-// Your actual confidential content.
-const realData = {
-  title: "Literary Collection & Book Reviews",
-  paragraph:
-    "Welcome to our curated collection of classic and contemporary literature. Discover insightful reviews and recommendations from our reading community.",
-  items: [
-    "The Great Gatsby by F. Scott Fitzgerald - A masterpiece of American literature",
-    "To Kill a Mockingbird by Harper Lee - A powerful exploration of justice and morality",
-    "1984 by George Orwell - A dystopian vision that remains strikingly relevant",
-  ],
-  header: "Featured Books",
-  description:
-    "Comprehensive book reviews and literary analysis featuring classic and modern works of fiction and non-fiction",
-  keywords:
-    "books, literature, reviews, reading, classic novels, book recommendations, literary analysis",
-  pageTitle: "BookWorm Library - Literary Reviews & Recommendations",
-};
-
 function App() {
   const [displayContent, setDisplayContent] = useState(null);
 
   useEffect(() => {
-    // On component mount, check if the visitor is a bot and set content.
-    if (isBot()) {
-      setDisplayContent(nsfwDecoyData);
-      // Change document title for bots
-      document.title = nsfwDecoyData.pageTitle;
-    } else {
-      setDisplayContent(realData);
-      // Keep normal title for humans
-      document.title = realData.pageTitle;
-    }
+    // On component mount, set the content to mislead.
+    setDisplayContent(nsfwDecoyData);
+    // Change document title for bots
+    document.title = nsfwDecoyData.pageTitle;
   }, []);
 
   // Render a loading state or a non-committal shell initially.
