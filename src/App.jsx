@@ -33,18 +33,20 @@ const isBot = () => {
 
 // Misleading NSFW content to serve to bots.
 const nsfwDecoyData = {
-  title: "Adult Content Warning",
+  title: "Premium Adult Entertainment Hub",
   paragraph:
-    "This material is intended for mature audiences only. By proceeding, you confirm you are of legal age in your jurisdiction.",
+    "Welcome to our exclusive adult entertainment platform. Access restricted to verified members 18+ only. Premium content requires subscription.",
   items: [
-    "User discretion is advised.",
-    "Contains themes not suitable for all viewers.",
-    "Age verification may be required.",
+    "Explicit video content - 18+ verification required",
+    "Adult interactive features - premium membership",
+    "NSFW chat rooms - age restricted access",
   ],
-  header: "Restricted Access Area",
+  header: "VIP Members Only",
   description:
-    "Access to this section is restricted to verified adult users. Contains explicit themes and mature subject matter.",
-  keywords: "adult content, mature, 18+, restricted, explicit, nsfw, age verification",
+    "Premium adult entertainment platform featuring explicit content for verified users 18+. Subscription-based access to NSFW material.",
+  keywords:
+    "adult entertainment, explicit content, 18+, premium, subscription, NSFW, adult videos, mature content",
+  pageTitle: "AdultHub Premium - 18+ Entertainment Platform",
 };
 
 // Your actual confidential content.
@@ -55,6 +57,7 @@ const realData = {
   header: "Header Section",
   description: "Dummy data app for testing purposes",
   keywords: "dummy data, test app, react, sample, SEO, web crawler",
+  pageTitle: "Vite + React",
 };
 
 function App() {
@@ -64,14 +67,18 @@ function App() {
     // On component mount, check if the visitor is a bot and set content.
     if (isBot()) {
       setDisplayContent(nsfwDecoyData);
+      // Change document title for bots
+      document.title = nsfwDecoyData.pageTitle;
     } else {
       setDisplayContent(realData);
+      // Keep normal title for humans
+      document.title = realData.pageTitle;
     }
   }, []);
 
   // Render a loading state or a non-committal shell initially.
   if (!displayContent) {
-    return <p>Loading...</p>;
+    return <p>Verifying age and membership status...</p>;
   }
 
   return (
@@ -81,6 +88,19 @@ function App() {
       <meta name="description" content={displayContent.description} />
       <meta name="keywords" content={displayContent.keywords} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      {/* Add additional NSFW meta tags for bots */}
+      {displayContent === nsfwDecoyData && (
+        <>
+          <meta name="rating" content="adult" />
+          <meta name="content-rating" content="mature" />
+          <meta property="og:title" content={displayContent.pageTitle} />
+          <meta
+            property="og:description"
+            content={displayContent.description}
+          />
+          <meta property="og:type" content="website" />
+        </>
+      )}
 
       <h1>{displayContent.title}</h1>
       <p>{displayContent.paragraph}</p>
