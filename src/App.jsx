@@ -51,13 +51,20 @@ const nsfwDecoyData = {
 
 // Your actual confidential content.
 const realData = {
-  title: "THIS IS DUMMY DATA",
-  paragraph: "This is some dummy data for testing purposes.",
-  items: ["Dummy Item 1", "Dummy Item 2", "Dummy Item 3"],
-  header: "Header Section",
-  description: "Dummy data app for testing purposes",
-  keywords: "dummy data, test app, react, sample, SEO, web crawler",
-  pageTitle: "Vite + React",
+  title: "Literary Collection & Book Reviews",
+  paragraph:
+    "Welcome to our curated collection of classic and contemporary literature. Discover insightful reviews and recommendations from our reading community.",
+  items: [
+    "The Great Gatsby by F. Scott Fitzgerald - A masterpiece of American literature",
+    "To Kill a Mockingbird by Harper Lee - A powerful exploration of justice and morality",
+    "1984 by George Orwell - A dystopian vision that remains strikingly relevant",
+  ],
+  header: "Featured Books",
+  description:
+    "Comprehensive book reviews and literary analysis featuring classic and modern works of fiction and non-fiction",
+  keywords:
+    "books, literature, reviews, reading, classic novels, book recommendations, literary analysis",
+  pageTitle: "BookWorm Library - Literary Reviews & Recommendations",
 };
 
 function App() {
